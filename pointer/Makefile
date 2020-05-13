@@ -5,13 +5,5 @@ pointer: main_pointer.c
 run: pointer
 	./pointer
 
-hello: main.c
-	gcc -o hello main.c
-
-.PHONY: test
-test: hello
-	./hello
-
 clean:
-	rm hello
 	rm pointer 
