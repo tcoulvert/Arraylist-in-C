@@ -15,7 +15,7 @@ struct main(int argc, int *argv[])
 {
     /* checks the intilization and resizing functions */
     arraylist *my_arraylist = malloc(16);
-    int check == 0 
+    int check = 0 
     check += initialize_arraylist(my_arraylist, 10);
     if (check != 0 || *my_arraylist.capacity != 10 || *my_arraylist.size != 0 || 
             *my_arraylist.base_array == NULL)
@@ -30,7 +30,7 @@ struct main(int argc, int *argv[])
         return 1;
 
     /* checks the add functions of the arraylist */
-    int check == 0 
+    check = 0 
     check += add(my_arraylist, 1);
     if (check != 0 || *my_arraylist.base_array[0] != 1)
         return 1;
@@ -39,7 +39,8 @@ struct main(int argc, int *argv[])
             *my_arraylist.base_array[1] != 1)
         return 1;
 
-    
+    /* checks the remove functions of the arraylist */
+    check = 0;
     
         
 }
