@@ -8,14 +8,39 @@ typedef struct
     /* defines current number of items in base array */
     int size;
     /* defines memory position of starting item (zeroth index) of base array */
-    int *zeroth_index
+    int *base_array
 } arraylist
 
 struct main(int argc, int *argv[])
 {
-    /* function calls */
+    /* checks the intilization and resizing functions */
     arraylist *my_arraylist = malloc(16);
+    int check == 0 
+    check += initialize_arraylist(my_arraylist, 10);
+    if (check != 0 || *my_arraylist.capacity != 10 || *my_arraylist.size != 0 || 
+            *my_arraylist.base_array == NULL)
+        return 1;
+    check += resize_arraylist(my_arraylist); 
+    if (check != 0 || *my_arraylist.capacity != 20 || *my_arraylist.size != 0 || 
+            *my_arraylist.base_array == NULL)
+        return 1;
+    check += resize_arraylist(my_arraylist, 8)
+    if (check != 0 || *my_arraylist.capacity != 8 || *my_arraylist.size != 0 || 
+            *my_arraylist.base_array == NULL)
+        return 1;
 
+    /* checks the add functions of the arraylist */
+    int check == 0 
+    check += add(my_arraylist, 1);
+    if (check != 0 || *my_arraylist.base_array[0] != 1)
+        return 1;
+    check += add(my_arraylist, 6, 0);
+    if (check != 0 || *my_arraylist.base_array[0] != 6 || 
+            *my_arraylist.base_array[1] != 1)
+        return 1;
+
+    
+    
         
 }
 
@@ -27,7 +52,7 @@ int initialize_arraylist(struct *arraylist_reference, int initial_capacity)
     {
         return 1;
     }
-    *arraylist_reference.zeroth_index = malloc(4 * initial_capacity);
+    *arraylist_reference.base_array = malloc(4 * initial_capacity);
     /* sets the capacity to the initial user-input capacity */
     *arraylist_reference.capacity = initial_capacity;
     *arraylist_reference.size = 0;
@@ -42,7 +67,7 @@ int resize_arraylist(struct *arraylist_reference)
     {
         return 1;
     }
-    *arraylist_reference.zeroth_index = realloc(4 * (2 * *arraylist_reference.capacity); 
+    *arraylist_reference.base_array = realloc(4 * (2 * *arraylist_reference.capacity); 
     /* sets the capacity to double the previous capacity */
     *arraylist_reference.capacity = 2 * initial_capacity;
     return 0;
@@ -57,7 +82,7 @@ int resize_arraylist(struct *arraylist_reference, int new_capacity)
     {
         return 1;
     }
-    *arraylist_reference.zeroth_index = realloc(4 * new_capacity);
+    *arraylist_reference.base_array = realloc(4 * new_capacity);
     /* sets the capacity to the new user-input capacity */
     *arraylist_reference.capacity = new_capacity;
     return 0;
@@ -71,7 +96,7 @@ int free_arraylist(struct *arraylist_reference)
     {
         return 1;
     }
-    free(*arraylist_reference.zeroth_index);
+    free(*arraylist_reference.base_array);
     return 0;
 }     
 
