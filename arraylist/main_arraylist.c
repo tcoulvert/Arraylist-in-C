@@ -15,7 +15,8 @@ struct main(int argc, int *argv[])
 {
     /* function calls */
     arraylist *my_arraylist = malloc(16);
-    
+
+        
 }
 
 /* allocates memory to the base array based upon a user-input initial capacity */
@@ -29,6 +30,7 @@ int initialize_arraylist(struct *arraylist_reference, int initial_capacity)
     *arraylist_reference.zeroth_index = malloc(4 * initial_capacity);
     /* sets the capacity to the initial user-input capacity */
     *arraylist_reference.capacity = initial_capacity;
+    *arraylist_reference.size = 0;
     return 0;
 }
 
