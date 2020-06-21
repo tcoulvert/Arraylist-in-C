@@ -1,17 +1,9 @@
-pointer: main_pointer.c
-	gcc -o pointer main_pointer.c
+arraylist: main_arraylist.c
+	gcc -o pointer main_arraylist.c
 
 .PHONY: run
-run: pointer
-	./pointer
-
-hello: main.c
-	gcc -o hello main.c
-
-.PHONY: test
-test: hello
-	./hello
+run: arraylist 
+	./ arraylist
 
 clean:
-	rm hello
-	rm pointer 
+	rm arraylist 
